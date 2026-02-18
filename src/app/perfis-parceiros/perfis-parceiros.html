@@ -1,0 +1,42 @@
+<section class="pt-8 pb-24 md:pb-[26rem] relative overflow-hidden bg-[#fff9f4]">
+
+    <div class="absolute inset-0 bg-gradient-to-b from-[#fae6d8] via-[#ffeadd] to-[#fffbf8] opacity-100 z-0"></div>
+
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute -right-[50px] -top-[30px] w-[400px] h-[500px] md:w-[600px] md:h-[800px] opacity-[0.15]">
+            <img src="imgs/numero4.png" alt="Decorative 4" class="w-full h-full object-contain">
+        </div>
+        <div class="absolute right-[15%] md:right-[25%] bottom-[60px] w-[200px] h-[300px] md:w-[300px] md:h-[400px] opacity-[0.4]"
+            style="filter: hue-rotate(155deg);">
+            <img src="imgs/numero4.png" alt="Decorative 4" class="w-full h-full object-contain">
+        </div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 tracking-tight leading-tight">
+            Quem pode ser <br> parceiro <span class="text-[#009b9f]">RC<span class="text-[#f05a10]">4</span>VC</span>
+        </h2>
+
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-16">
+            @for (perfil of perfis; track perfil.titulo) {
+            <div
+                class="w-40 h-44 md:w-52 md:h-48 bg-white rounded-3xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white hover:border-[#bfe6e7] flex flex-col items-center justify-center p-4 hover:-translate-y-2 transition-all duration-300 group cursor-default">
+
+                <div class="mb-5 text-[#009b9f] group-hover:scale-110 transition-transform duration-300">
+                    <img [src]="perfil.iconeUrl" [alt]="'Ícone ' + perfil.titulo" class="w-30 h-25">
+                </div>
+
+                <span class="text-gray-800 font-extrabold text-lg leading-tight text-center"
+                    [innerHTML]="perfil.titulo"></span>
+            </div>
+            }
+        </div>
+        <a href="https://wa.me/+5511993502798?text=Gostaria%20de%20obter%20mais%20detalhes%20sobre%20as%20solu%C3%A7%C3%B5es%20oferecidas%20pela%20RC4VC."
+            target="_blank" rel="noopener noreferrer"><button
+                class="bg-[#f05a10] text-white font-bold py-4 px-8 text-lg lg:py-5 lg:px-9 lg:text-2xl -mb-20 mt-8 rounded-full shadow-lg hover:bg-[#d64d0b] transition-colors">
+                Quero conhecer a plataforma
+            </button>
+        </a>
+    </div>
+</section>

@@ -1,0 +1,66 @@
+<section id="diferenciais" class="py-20 px-8 md:px-16 bg-gradient-to-r from-white to-[#5bdadd] relative">
+    <div class="max-w-6xl mx-auto">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 text-center lg:text-left">
+            <div class="lg:-mt-40 lg:-mb-15">
+                <h2 class="text-5xl lg:text-[3.9rem] font-extrabold text-gray-700 leading-[1.1] tracking-tight">
+                    Tecnologia e <br> Assessoria em <br> Seguros
+                </h2>
+                <p class="mt-6 lg:text-[1.6rem] text-gray-700 leading-[1.3] text-lg md:text-xl font-medium">
+                    A RC4VC une Assessoria com<br> Tecnologia, gerando valor de<br> ponta a ponta para o CORRETOR.
+                </p>
+            </div>
+            <div class="lg:-mt-40 lg:-mb-15 flex items-center justify-center lg:justify-start w-full relative z-10">
+                <img src="imgs/notebook-2.png" alt="Notebook Tecnologia"
+                    class="w-full max-w-md md:max-w-lg lg:w-[130%] lg:max-w-none h-auto drop-shadow-2xl transform hover:-translate-y-2 transition-transform duration-500">
+            </div>
+        </div>
+
+        <div class="flex justify-center mb-10 mt-12">
+            <span
+                class="bg-[#ff6a13] text-white font-extrabold px-12 py-3.5 rounded-2xl text-[1.4rem] tracking-wide shadow-[0_10px_25px_rgba(255,106,19,0.4)]">
+                TECNOLOGIA
+            </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            @for (tec of tecnologias; track tec.titulo) {
+            <div
+                class="bg-white rounded-[2rem] p-6 flex items-center justify-start md:justify-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-transform">
+                <span class="drop-shadow-sm w-12 md:w-16 lg:w-[4.5rem] shrink-0">
+                    <img [src]="tec.icone" [alt]="tec.titulo" class="w-full h-auto object-contain">
+                </span>
+                <span class="font-extrabold text-gray-900 text-xl lg:text-[1.3rem] leading-tight"
+                    [innerHTML]="tec.titulo"></span>
+            </div>
+            }
+        </div>
+
+        <div class="flex justify-center mb-10">
+            <span
+                class="bg-[#009b9f] text-white font-extrabold px-12 py-3.5 rounded-2xl text-[1.4rem] tracking-wide shadow-[0_10px_25px_rgba(0,155,159,0.4)]">
+                ASSESSORIA EM SEGUROS
+            </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            @for (ass of assessorias; track ass.titulo) {
+            <div
+                class="bg-white rounded-[2rem] p-6 flex items-center justify-start md:justify-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-transform">
+                <span class="drop-shadow-sm w-12 md:w-16 lg:w-[4.5rem] shrink-0">
+                    <img [src]="ass.icone" [alt]="ass.titulo" class="w-full h-auto object-contain">
+                </span>
+                <span
+                    class="font-extrabold text-gray-900 text-xl lg:text-[1.3rem] leading-tight text-left md:text-center"
+                    [innerHTML]="ass.titulo"></span>
+            </div>
+            }
+        </div>
+
+        <p class="text-center font-extrabold text-2xl lg:text-3xl text-gray-900 mt-20 mb-10">
+            A RC4VC cuida do seu BACKOFFICE para você
+            <br class="hidden md:block"> focar no que importa: <span class="text-[#ff6a13]">VENDER.</span>
+        </p>
+
+    </div>
+</section>

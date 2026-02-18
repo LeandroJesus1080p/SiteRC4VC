@@ -1,0 +1,63 @@
+<header class="fixed w-full top-0 left-0 z-50 transition-all duration-500 ease-in-out" [ngClass]="{
+            'bg-white/95 shadow-md py-3': isScrolled,
+            'bg-white/90 backdrop-blur-xl shadow-[0_20px_60px_30px_rgba(255,255,255,0.95)] py-5': !isScrolled
+        }">
+
+    <div class="max-w-[1440px] mx-auto px-6 flex justify-between items-center transition-all duration-500">
+
+        <div class="text-4xl font-extrabold text-[#009b9f] tracking-tighter z-50 relative">
+            <img class="w-35" src="imgs/logo.png" alt="">
+        </div>
+
+        <nav class="hidden lg:flex space-x-10 font-extrabold text-[1.1rem] text-[#2d3748] items-center">
+
+            @for (link of menuItems; track link.id) {
+            <a [href]="'#' + link.id" class="hover:text-[#009b9f] transition-colors tracking-tight">
+                {{ link.label }}
+            </a>
+            }
+
+            <a href="https://rc4vc.com/adm/login" target="_blank" rel="noopener noreferrer"
+                class="bg-[#bfe6e7] text-[#004d4f] px-6 py-2.5 rounded-full font-bold text-[0.9rem] flex items-center gap-2 hover:bg-[#a5dcd3] transition-colors whitespace-nowrap">
+                ÁREA DO CORRETOR
+                <div class="bg-[#004d4f] text-white rounded-full p-0.5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </a>
+        </nav>
+
+        <button class="block lg:hidden text-[#009b9f] p-1 focus:outline-none z-50 relative"
+            (click)="isMenuOpen = !isMenuOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+    </div>
+
+    <div class="lg:hidden absolute top-full left-0 w-full bg-white overflow-hidden transition-all duration-300 ease-in-out shadow-2xl"
+        [ngClass]="{
+            'max-h-[500px] opacity-100': isMenuOpen,
+            'max-h-0 opacity-0 pointer-events-none': !isMenuOpen
+         }">
+
+        <nav class="flex flex-col py-6 px-8 space-y-4 font-extrabold text-[1.1rem] text-[#2d3748]">
+
+            @for (link of menuItems; track link.id) {
+            <a [href]="'#' + link.id" (click)="scrollToSection(link.id)"
+                class="hover:text-[#009b9f] border-b border-gray-100 pb-3 block">
+                {{ link.label }}
+            </a>
+            }
+
+            <a href="https://rc4vc.com/adm/login" target="_blank" rel="noopener noreferrer"
+                class="bg-[#bfe6e7] text-[#004d4f] px-6 py-3.5 mt-2 rounded-full font-bold w-full block text-center">
+                ÁREA DO CORRETOR
+            </a>
+        </nav>
+    </div>
+</header>

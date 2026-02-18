@@ -1,0 +1,57 @@
+<section id="quem-somos" class="relative py-12 md:pt-0 md:pb-8 overflow-visible bg-transparent md:-mt-[20rem] z-20">
+
+    <div
+        class="relative w-[90%] lg:absolute lg:left-0 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:w-[70%] h-auto lg:h-[400px] bg-[#f05a10] rounded-r-[3rem] lg:rounded-r-[5rem] z-0 flex items-center p-8 lg:p-16 shadow-[20px_20px_60px_rgba(240,90,16,0.15)] mb-12 lg:mb-0">
+        <h2
+            class="text-white text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight z-10 relative drop-shadow-md">
+            Quem <br> somos?
+        </h2>
+    </div>
+
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-end items-center gap-8 relative z-10 px-8">
+
+        @for (founder of fundadores; track founder.nome) {
+        <div
+            class="relative group w-full max-w-[320px] h-[650px] bg-gray-900 rounded-[3.5rem] border-[10px] border-gray-900 shadow-2xl overflow-hidden transform hover:-translate-y-4 transition-all duration-500">
+
+            <div class="absolute top-24 -left-[14px] w-[4px] h-10 bg-gray-800 rounded-l-md"></div>
+            <div class="absolute top-40 -left-[14px] w-[4px] h-16 bg-gray-800 rounded-l-md"></div>
+            <div class="absolute top-60 -left-[14px] w-[4px] h-16 bg-gray-800 rounded-l-md"></div>
+            <div class="absolute top-40 -right-[14px] w-[4px] h-24 bg-gray-800 rounded-r-md"></div>
+
+            <div
+                class="absolute top-3 left-1/2 transform -translate-x-1/2 w-[100px] h-[30px] bg-black rounded-full z-50 shadow-sm pointer-events-none transition-all duration-300 group-hover:w-[120px]">
+            </div>
+
+            <div class="w-full h-full bg-white rounded-[3rem] overflow-hidden flex flex-col relative">
+
+                <div class="h-[45%] bg-gray-50 relative group-hover:scale-105 transition-transform duration-700">
+                    <img [src]="founder.fotoUrl" [alt]="founder.nome" class="w-full h-full object-cover object-top">
+                </div>
+
+                <div
+                    class="flex-1 bg-[#009b9f] px-8 pt-12 pb-32 text-white relative flex flex-col items-center justify-center text-center">
+                    <div class="relative z-10 w-full">
+                        <h3 class="font-bold text-2xl mb-2">{{ founder.nome }}</h3>
+                        <div class="w-16 h-0.5 bg-white/30 mx-auto mb-6"></div>
+
+                        <div class="space-y-2">
+                            <p class="text-base font-medium">{{ founder.linha1 }}</p>
+                            <p class="text-base font-medium">{{ founder.linha2 }}</p>
+                            <p class="text-base font-medium" [innerHTML]="founder.linha3"></p>
+                        </div>
+                    </div>
+
+                    <a [href]="founder.linkedinUrl" target="_blank"
+                        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white text-[#009b9f] rounded-full flex items-center justify-center font-bold text-3xl shadow-lg cursor-pointer hover:bg-[#f05a10] hover:text-white hover:scale-110 transition-all duration-300 z-20">
+                        in
+                    </a>
+
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
+</section>

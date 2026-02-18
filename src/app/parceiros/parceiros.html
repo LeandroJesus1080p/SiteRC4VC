@@ -1,0 +1,45 @@
+<section id="parceiros" class="py-1 bg-[#fae6d8]">
+    <div class="max-w-5xl mx-auto text-center px-8">
+
+        <div class="flex flex-col items-center  mb-24 gap-6">
+            <div class="flex justify-center mb-10 mt-4">
+                <span
+                    class="bg-[#ff6a13] text-white font-extrabold px-12 py-3.5 rounded-2xl text-[1.4rem] tracking-wide shadow-[0_10px_25px_rgba(255,106,19,0.4)]">
+                    CORRETORAS PARCEIRAS
+                </span>
+            </div>
+
+            <div
+                class="w-full border border-gray-400 rounded-[2rem] p-10 flex flex-wrap justify-center items-center gap-10 md:gap-x-16 bg-transparent">
+                @for (corretora of corretoras; track corretora.nome) {
+                <div
+                    class="opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-16 w-32">
+                    <img [src]="corretora.logoUrl" [alt]="'Logo ' + corretora.nome"
+                        class="max-h-full max-w-full object-contain w-60">
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center mt-16 mb-2 gap-6">
+            <div class="flex justify-center mb-10">
+                <span
+                    class="bg-[#009b9f] text-white font-extrabold px-12 py-3.5 rounded-2xl text-[1.4rem] tracking-wide shadow-[0_10px_25px_rgba(0,155,159,0.4)]">
+                    SEGURADORAS PARCEIRAS
+                </span>
+            </div>
+
+            <div
+                class="w-full border border-gray-400 rounded-[2rem] p-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-10 md:gap-x-16 md:gap-y-12 bg-transparent">
+                @for (seguradora of seguradoras; track seguradora.nome) {
+                <div
+                    class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-16 w-32">
+                    <img [src]="seguradora.logoUrl" [alt]="'Logo ' + seguradora.nome"
+                        class="max-h-full max-w-full object-contain w-60">
+                </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
