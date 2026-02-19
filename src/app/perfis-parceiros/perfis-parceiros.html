@@ -21,9 +21,9 @@
         <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-16">
             @for (perfil of perfis; track perfil.titulo) {
             <div
-                class="w-40 h-44 md:w-52 md:h-48 bg-white rounded-3xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white hover:border-[#bfe6e7] flex flex-col items-center justify-center p-4 hover:-translate-y-2 transition-all duration-300 group cursor-default">
+                class="w-48 h-44 md:w-60 md:h-48 bg-white rounded-3xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white hover:border-[#bfe6e7] flex flex-col items-center justify-center p-4 hover:-translate-y-2 transition-all duration-300 group cursor-default">
 
-                <div class="mb-5 text-[#009b9f] group-hover:scale-110 transition-transform duration-300">
+                <div class="mb-1 text-[#009b9f] group-hover:scale-110 transition-transform duration-300">
                     <img [src]="perfil.iconeUrl" [alt]="'Ícone ' + perfil.titulo" class="w-30 h-25">
                 </div>
 
