@@ -16,16 +16,22 @@ export class Parceiros {
     { nome: 'CASAG', logoUrl: 'imgs/corretores/casag.png' }
   ];
 
-  seguradoras = [
+  seguradorasRow1 = [
     { nome: 'Akad', logoUrl: 'imgs/corretores/akadseguros.png' },
     { nome: 'FF Seguros', logoUrl: 'imgs/corretores/ff-seguros.png' },
     { nome: 'Fator', logoUrl: 'imgs/corretores/fator-seguradora.png' },
-    { nome: 'Seguros Unimed', logoUrl: 'imgs/corretores/unimed.png' },
+    { nome: 'Seguros Unimed', logoUrl: 'imgs/corretores/unimed.png' }
+  ];
+
+  seguradorasRow2 = [
     { nome: 'Porto Seguro', logoUrl: 'imgs/corretores/porto-seguro.png' },
     { nome: 'Mapfre', logoUrl: 'imgs/corretores/mapfre.png' },
     { nome: 'Chubb', logoUrl: 'imgs/corretores/chubb.webp' },
     { nome: 'Ezze', logoUrl: 'imgs/corretores/ezze.svg' },
-    { nome: 'Excelsior', logoUrl: 'imgs/corretores/excelsior.webp' },
+    { nome: 'Excelsior', logoUrl: 'imgs/corretores/excelsior.webp' }
+  ];
+
+  seguradorasRow3 = [
     { nome: 'AIG', logoUrl: 'imgs/corretores/aig.png' },
     { nome: 'Tokio Marine', logoUrl: 'imgs/corretores/tokio.png' },
     { nome: 'Allianz', logoUrl: 'imgs/corretores/allianz.png' },

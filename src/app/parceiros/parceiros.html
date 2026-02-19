@@ -30,14 +30,41 @@
             </div>
 
             <div
-                class="w-full border border-gray-400 rounded-[2rem] p-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-10 md:gap-x-16 md:gap-y-12 bg-transparent">
-                @for (seguradora of seguradoras; track seguradora.nome) {
-                <div
-                    class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-16 w-32">
-                    <img [src]="seguradora.logoUrl" [alt]="'Logo ' + seguradora.nome"
-                        class="max-h-full max-w-full object-contain w-60">
+                class="flex flex-col w-full border border-gray-400 rounded-[2rem] p-10 bg-transparent items-center gap-10 md:gap-12">
+
+                <!-- Row 1 (Larger Logos) -->
+                <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-10 md:gap-x-16 w-full">
+                    @for (seguradora of seguradorasRow1; track seguradora.nome) {
+                    <div
+                        class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-16 w-40">
+                        <img [src]="seguradora.logoUrl" [alt]="'Logo ' + seguradora.nome"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    }
                 </div>
-                }
+
+                <!-- Row 2 (Smaller Logos) -->
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 md:gap-x-12 w-full">
+                    @for (seguradora of seguradorasRow2; track seguradora.nome) {
+                    <div
+                        class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-12 w-28">
+                        <img [src]="seguradora.logoUrl" [alt]="'Logo ' + seguradora.nome"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    }
+                </div>
+
+                <!-- Row 3 (Smaller Logos) -->
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 md:gap-x-12 w-full">
+                    @for (seguradora of seguradorasRow3; track seguradora.nome) {
+                    <div
+                        class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-12 w-28">
+                        <img [src]="seguradora.logoUrl" [alt]="'Logo ' + seguradora.nome"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    }
+                </div>
+
             </div>
         </div>
 
