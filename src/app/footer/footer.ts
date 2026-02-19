@@ -21,6 +21,6 @@ export class Footer {
     { nome: 'YouTube', url: '#', iconeSvg: '<path d="M23.498 6.186..."/>', classPersonalizada: 'text-xl font-bold' },
     { nome: 'LinkedIn', url: '#', iconeTexto: 'in', classPersonalizada: 'font-bold text-xl' },
     { nome: 'Instagram', url: '#', iconeSvg: '<rect x="2" y="2".../><path d="M16 11.37..."/><line x1="17.5".../>', classPersonalizada: '' },
-    { nome: 'Facebook', url: '#', iconeTexto: 'f', classPersonalizada: 'font-bold text-xl font-serif' }
+    { nome: 'Facebook', url: '#', iconeTexto: 'f', classPersonalizada: 'font-bold text-xl' }
   ];
 }

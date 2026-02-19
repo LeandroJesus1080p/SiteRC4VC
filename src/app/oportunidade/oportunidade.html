@@ -1,12 +1,14 @@
 <section id="oportunidade" class="pt-10 pb-20 px-8 md:px-16 bg-transparent">
     <h2 class="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-16">
-        Porque o RC Profissional é <br> um <span class="text-[#009b9f]">OCEANO AZUL</span>?
+        Porque o RC Profissional é <br> um <span class="text-[#008e90]">OCEANO AZUL</span>?
     </h2>
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
 
-        <div class="bg-white rounded-3xl shadow-xl aspect-video relative border border-gray-100 overflow-hidden group">
-            <video #videoPlayer class="w-full h-full object-cover" playsinline>
+        <div
+            class="lg:col-span-3 bg-white rounded-4xl shadow-xl aspect-[4/3] relative border border-gray-100 overflow-hidden group">
+            <video #videoPlayer class="w-full h-full transition-all duration-300"
+                [ngClass]="{'object-cover': !videoPlaying, 'object-contain bg-black': videoPlaying}" playsinline>
                 <source src="https://rc4vc.com/assets/videos/institucional.mp4" type="video/mp4">
                 Seu navegador não suporta a tag de vídeo.
             </video>
@@ -29,12 +31,13 @@
             }
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-4 lg:col-span-2">
             @for (motivo of motivosOceanoAzul; track motivo.destaque) {
-            <div class="flex gap-4 items-start">
-                <span class="text-[#009b9f] text-2xl leading-none mt-1">▪</span>
-                <p class="text-gray-700 text-lg">
-                    <strong>{{ motivo.destaque }}</strong> {{ motivo.texto }}
+            <div>
+                <p class="text-gray-900 text-[17px] leading-snug">
+                    <span class="text-black font-extrabold text-2xl leading-none mr-1 relative top-[3px]">*</span>
+                    <strong>{{
+                        motivo.destaque }}</strong> {{ motivo.texto }}
                 </p>
             </div>
             }
@@ -45,7 +48,7 @@
     <div class="text-center mt-16">
         <a href="https://wa.me/+5511993502798?text=Gostaria%20de%20obter%20mais%20detalhes%20sobre%20as%20solu%C3%A7%C3%B5es%20oferecidas%20pela%20RC4VC."
             target="_blank" rel="noopener noreferrer"
-            class="bg-[#f05a10] text-white font-bold py-4 px-8 text-lg lg:py-5 lg:px-9 lg:text-2xl rounded-full shadow-lg hover:bg-[#d64d0b] transition-colors">
+            class="inline-block bg-[#f05a10] text-white font-bold py-4 px-8 text-lg lg:py-5 lg:px-9 lg:text-2xl rounded-full shadow-lg hover:bg-[#d64d0b] transition-colors">
             Quero conhecer a plataforma
         </a>
     </div>

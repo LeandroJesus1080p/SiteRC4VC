@@ -15,7 +15,7 @@ export class QuemSomos {
       fotoPlaceholder: '📸 Foto <br> Fábio Alves',
       linha1: 'Corretor há 15 anos',
       linha2: 'Formação em TI',
-      linha3: 'imgs/pessoas/48.png',
+      linha3: 'Founder RC4VC,<br> MV Magneto e Fin-tracks',
       linkedinUrl: 'https://www.linkedin.com/in/f%C3%A1bio-alves-41402a42/'
     },
     {
