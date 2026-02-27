@@ -15,19 +15,19 @@ interface Testimonial {
 export class Depoimentos implements OnInit, OnDestroy {
   testimonials: Testimonial[] = [
     {
-      text: "Trabalhar com a RC4VC trouxe uma agilidade que não encontrava em outras assessorias. O processo é fluido, sem burocracia, e o atendimento é humano. Recomendo para qualquer corretor que queira escalar suas vendas de RCP.",
+      text: "“Trabalhar com a RC4VC trouxe uma agilidade que eu não encontrava em outras assessorias. O processo é fluido, sem burocracia, e o atendimento é humano. Recomendo para qualquer corretor que queira escalar suas vendas de RCP.”",
       highlight: false
     },
     {
-      text: "O que diferencia a RC4VC é o domínio técnico sobre o Seguro de RCP. Eles realmente conhecem as minúcias do mercado e transmitem a segurança necessária para fecharmos negócios complexos com tranquilidade.",
+      text: "“O que diferencia a RC4VC é o domínio técnico sobre o Seguro de RCP. Eles realmente conhecem as minúcias do mercado e transmitem a segurança necessária para fecharmos negócios complexos com tranquilidade.”",
       highlight: true
     },
     {
-      text: "A RC4VC foi a parceira fundamental para me inserir no mercado de Responsabilidade Civil de forma qualificada. Com o apoio deles, passei de um corretor generalista a um especialista respeitado pelos meus clientes.",
+      text: "“A RC4VC foi a parceira fundamental para me inserir no mercado de Responsabilidade Civil de forma qualificada. Com o apoio deles, passei de um corretor generalista a um especialista respeitado pelos meus clientes.”",
       highlight: false
     },
     {
-      text: "Mais do que assessoria, a RC4VC é um braço direito. A equipe está sempre pronta para tirar dúvidas e ajudar na argumentação de vendas. É a parceria que todo corretor busca para crescer com segurança",
+      text: "“Mais do que uma assessoria, a RC4VC é um braço direito. A equipe está sempre pronta para tirar dúvidas e ajudar na argumentação de vendas. É a parceria que todo corretor busca para crescer com segurança.”",
       highlight: false
     },
 

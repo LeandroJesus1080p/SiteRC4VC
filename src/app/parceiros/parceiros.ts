@@ -8,12 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Parceiros {
   corretoras = [
+    { nome: 'Sicoob', logoUrl: 'imgs/corretores/sicoob.png' },
     { nome: 'Warren', logoUrl: 'imgs/corretores/warren.svg' },
     { nome: 'CAAES', logoUrl: 'imgs/corretores/caaes.png' },
     { nome: 'Odonto Pay', logoUrl: 'imgs/corretores/odontopay.png' },
-    { nome: 'APM', logoUrl: 'imgs/corretores/apm.png' },
     { nome: 'ABORL', logoUrl: 'imgs/corretores/aborl.png' },
-    { nome: 'CASAG', logoUrl: 'imgs/corretores/casag.png' }
+    { nome: 'CASAG', logoUrl: 'imgs/corretores/casag.png' },
+    { nome: 'APM', logoUrl: 'imgs/corretores/apm.png' },
+    { nome: 'PLT', logoUrl: 'imgs/corretores/plt.svg' },
+    { nome: 'Grupo Legado', logoUrl: 'imgs/corretores/grupo-legado.png' },
+    { nome: 'Addmoney', logoUrl: 'imgs/corretores/addmoney.png' },
+    { nome: 'Outlier', logoUrl: 'imgs/corretores/outlier.png' }
   ];
 
   seguradorasRow1 = [

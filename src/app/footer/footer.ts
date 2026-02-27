@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class Footer {
   contato = {
-    enderecoTexto: 'Rua Itapeva, 490 - Cj 11 - Bela Vista<br>São Paulo - SP - 01332-902',
-    enderecoLink: 'https://maps.google.com/?q=Rua+Itapeva+490+Bela+Vista+Sao+Paulo',
+    enderecoTexto: 'Av Angélica, 2632 - 3º andar - sala 32 <br> Higienópolis - São Paulo - SP - 01228-200',
+    enderecoLink: 'https://maps.app.goo.gl/5G9TFMPvQ9d1DNfi8',
     telefone1Texto: '(11) 2359-2834',
     telefone1Link: 'tel:+551123592834',
     telefone2Texto: '(11) 98257-4444',

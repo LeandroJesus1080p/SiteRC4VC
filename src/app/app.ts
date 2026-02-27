@@ -10,6 +10,7 @@ import { PerfisParceiros } from "./perfis-parceiros/perfis-parceiros";
 import { QuemSomos } from "./quem-somos/quem-somos";
 import { Depoimentos } from "./depoimentos/depoimentos";
 import { Footer } from "./footer/footer";
+import { Formulario } from "./formulario/formulario";
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ import { Footer } from "./footer/footer";
     PerfisParceiros,
     QuemSomos,
     Depoimentos,
-    Footer
+    Footer,
+    Formulario
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

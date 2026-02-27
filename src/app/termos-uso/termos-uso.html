@@ -1,0 +1,83 @@
+<div
+    class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-sm transition-opacity">
+    <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col overflow-hidden transform transition-all max-h-full">
+        <!-- Header -->
+        <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/80">
+            <h3 class="text-3xl font-extrabold text-[#f05a10] tracking-tight">termos de uso</h3>
+            <button type="button" (click)="fechar()"
+                class="text-gray-400 hover:text-[#f05a10] transition-colors p-1 rounded-full hover:bg-gray-100">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div
+            class="p-6 md:p-8 overflow-y-auto flex-grow text-gray-600 space-y-6 text-[0.95rem] leading-relaxed custom-scrollbar">
+
+            <p>Na <strong class="font-bold text-gray-800">RC4VC</strong>, privacidade e segurança são prioridades e nos
+                comprometemos com a transparência do tratamento de dados pessoais dos nossos usuários/clientes. Por
+                isso, esta presente Política de Privacidade estabelece como é feita a coleta, uso e transferência de
+                informações de clientes ou outras pessoas que acessam ou usam nosso site.</p>
+            <p>Ao utilizar nossos serviços, você entende que coletaremos e usaremos suas informações pessoais nas formas
+                descritas nesta Política, sob as normas de Proteção de Dados (LGPD, Lei Federal 13.709/2018), das
+                disposições consumeristas da Lei Federal 8078/1990 e as demais normas do ordenamento jurídico brasileiro
+                aplicáveis.</p>
+            <p>Dessa forma, a <strong class="font-bold text-gray-800">RC4VC</strong>, no papel de Controladora de Dados,
+                obriga-se ao disposto na presente Política de Privacidade.</p>
+
+            @for (secao of secoesTermos; track secao.titulo) {
+            <details class="group">
+                <summary
+                    class="flex justify-between items-center font-bold cursor-pointer list-none rounded-md px-5 py-3.5 bg-[#f05a10] text-white hover:bg-[#ff6a13] transition-colors">
+                    {{ secao.titulo }}
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
+                </summary>
+
+                <div class="text-gray-600 mt-4 px-2 space-y-4">
+                    @for (texto of secao.textosIniciais; track texto) {
+                    <p [innerHTML]="texto"></p>
+                    }
+
+                    @if (secao.topicosLista) {
+                    <ul class="space-y-3">
+                        @for (topico of secao.topicosLista; track topico) {
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-[#009b9f] shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span [innerHTML]="topico"></span>
+                        </li>
+                        }
+                    </ul>
+                    }
+
+                    @if (secao.itensNumerados) {
+                    <ol class="list-decimal pl-6 space-y-2 text-[#f05a10] font-medium">
+                        @for (item of secao.itensNumerados; track item) {
+                        <li><span class="text-gray-600 font-normal" [innerHTML]="item"></span></li>
+                        }
+                    </ol>
+                    }
+
+                    @if (secao.textosFinais) {
+                    @for (texto of secao.textosFinais; track texto) {
+                    <p [innerHTML]="texto"></p>
+                    }
+                    }
+                </div>
+            </details>
+            }
+
+        </div>
+    </div>
+</div>
