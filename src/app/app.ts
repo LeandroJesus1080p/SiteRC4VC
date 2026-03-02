@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Navigation } from "./navigation/navigation";
 import { Banner } from "./banner/banner";
@@ -32,6 +33,23 @@ import { Formulario } from "./formulario/formulario";
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('SiteRC4VC');
+  protected readonly isLoading = signal(true);
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (document.readyState === 'complete') {
+        this.isLoading.set(false);
+      } else {
+        window.addEventListener('load', () => {
+          this.isLoading.set(false);
+        });
+      }
+    } else {
+      this.isLoading.set(false);
+    }
+  }
 }

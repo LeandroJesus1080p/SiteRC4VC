@@ -1,3 +1,16 @@
+@if (isLoading()) {
+<div class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white transition-opacity duration-500">
+    <div class="windows-spinner">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <p class="mt-4 text-lg font-medium text-gray-900">Carregando...</p>
+</div>
+}
+
 <app-navigation></app-navigation>
 <app-banner></app-banner>
 <app-oportunidade></app-oportunidade>
