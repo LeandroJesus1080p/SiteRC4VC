@@ -9,14 +9,23 @@
                 </span>
             </div>
 
-            <div
-                class="w-full border border-gray-400 rounded-[2rem] p-10 flex flex-wrap justify-center items-center gap-10 md:gap-x-16 bg-transparent">
+            <div #carouselCorretoras (scroll)="onScrollCorretoras($event)"
+                class="w-full border border-gray-400 rounded-[2rem] py-8 px-0 lg:p-10 flex flex-nowrap lg:flex-wrap overflow-x-auto lg:overflow-x-visible items-center lg:justify-center gap-0 lg:gap-x-16 bg-transparent snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:-none] [scrollbar-width:none]">
                 @for (corretora of corretoras; track corretora.nome) {
                 <div
-                    class="opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-16 w-32">
+                    class="opacity-60 xl:mb-5 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center shrink-0 w-full lg:w-32 h-20 lg:h-16 snap-center px-10 lg:px-0">
                     <img [src]="corretora.logoUrl" [alt]="'Logo ' + corretora.nome"
                         class="max-h-full max-w-full object-contain w-60">
                 </div>
+                }
+            </div>
+
+            <!-- Dots Mobile Corretoras -->
+            <div class="flex lg:hidden justify-center space-x-2 mt-4 w-full">
+                @for (item of corretoras; track item.nome; let i = $index) {
+                <button (click)="goToCorretora(i)"
+                    [class]="corretorasCurrentSlide === i ? 'bg-[#ff6a13] w-8' : 'bg-gray-300 w-3 hover:bg-[#ff6a13]'"
+                    class="h-3 rounded-full transition-all duration-300"></button>
                 }
             </div>
         </div>
@@ -29,11 +38,12 @@
                 </span>
             </div>
 
+            <!-- DESKTOP GRID -->
             <div
-                class="flex flex-col w-full border border-gray-400 rounded-[2rem] p-10 bg-transparent items-center gap-10 md:gap-12">
+                class="hidden lg:flex flex-col w-full border border-gray-400 rounded-[2rem] p-10 bg-transparent items-center gap-10 lg:gap-12">
 
                 <!-- Row 1 (Larger Logos) -->
-                <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-10 md:gap-x-16 w-full">
+                <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-10 lg:gap-x-16 w-full">
                     @for (seguradora of seguradorasRow1; track seguradora.nome) {
                     <div
                         class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-16 w-40">
@@ -44,7 +54,7 @@
                 </div>
 
                 <!-- Row 2 (Smaller Logos) -->
-                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 md:gap-x-12 w-full">
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 lg:gap-x-12 w-full">
                     @for (seguradora of seguradorasRow2; track seguradora.nome) {
                     <div
                         class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-12 w-28">
@@ -55,7 +65,7 @@
                 </div>
 
                 <!-- Row 3 (Smaller Logos) -->
-                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 md:gap-x-12 w-full">
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 lg:gap-x-12 w-full">
                     @for (seguradora of seguradorasRow3; track seguradora.nome) {
                     <div
                         class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center h-12 w-28">
@@ -65,6 +75,28 @@
                     }
                 </div>
 
+            </div>
+
+            <!-- MOBILE/TABLET CAROUSEL -->
+            <div #carouselSeguradoras (scroll)="onScrollSeguradoras($event)"
+                class="flex lg:hidden w-full border border-gray-400 rounded-[2rem] py-8 px-0 flex-nowrap overflow-x-auto items-center gap-0 bg-transparent snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:-none] [scrollbar-width:none]">
+
+                @for (seguradora of allSeguradoras; track seguradora.nome) {
+                <div
+                    class="opacity-70 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-default flex items-center justify-center shrink-0 snap-center w-full h-20 px-10">
+                    <img [src]="seguradora.logoUrl" [alt]="'Logo ' + seguradora.nome"
+                        class="max-h-full max-w-full object-contain">
+                </div>
+                }
+            </div>
+
+            <!-- Dots Mobile Seguradoras -->
+            <div class="flex lg:hidden justify-center space-x-2 mt-4 w-full">
+                @for (item of allSeguradoras; track item.nome; let i = $index) {
+                <button (click)="goToSeguradora(i)"
+                    [class]="seguradorasCurrentSlide === i ? 'bg-[#009b9f] w-8' : 'bg-gray-300 w-3 hover:bg-[#009b9f]'"
+                    class="h-3 rounded-full transition-all duration-300"></button>
+                }
             </div>
         </div>
 

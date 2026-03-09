@@ -1,51 +1,75 @@
-<section class="pt-24 pb-8 px-8 bg-gradient-to-b from-[#fdf2eb] to-[#fae6d8] relative text-center overflow-hidden">
-    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 tracking-tight leading-tight">
+<section class="pt-20 pb-8 px-8 bg-gradient-to-b from-[#fdf2eb] to-[#fae6d8] relative text-center overflow-hidden">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 sm:mb-1 tracking-tight leading-tight">
         Se você <span class="text-[#f05a10]">sofre</span> com...
     </h2>
 
-    <div class="relative max-w-5xl mx-auto flex flex-col md:block items-center md:h-[550px] gap-4">
+    <div class="relative max-w-5xl mx-auto flex flex-col lg:block items-center lg:h-[550px] gap-4">
 
         <img src="imgs/homem-frustrado.png" alt="Homem Frustrado"
-            class="w-full max-w-xl h-auto mx-auto mb-8 z-10 relative  md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:mb-0 md:w-auto md:h-auto md:max-h-[750px] lg:max-h-[850px]">
-        <div
-            class="w-full max-w-sm md:max-w-none md:w-56 bg-white p-5 rounded-2xl shadow-lg text-sm font-medium text-gray-700 border border-gray-100 z-20 md:absolute md:top-10 md:left-4 lg:left-10">
-            Dificuldade de acesso e cadastro em <span class="font-extrabold">todas as seguradoras</span>
+            class="w-full max-w-xl h-auto mx-auto -mb-7 z-10 relative lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:mb-0 lg:w-auto lg:h-auto lg:max-h-[750px] xl:max-h-[850px] opacity-90 lg:opacity-100">
+
+        <div #carouselDores (scroll)="onScrollDores($event)"
+            class="flex lg:block w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory lg:snap-none gap-4 lg:gap-0 pb-8 pt-4 lg:pb-0 lg:pt-0 z-20 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:-none] [scrollbar-width:none]">
+
+            <div class="shrink-0 w-full lg:w-auto snap-center flex justify-center lg:block px-4 lg:px-0">
+                <div
+                    class="w-full lg:max-w-none lg:w-72 bg-white/95 lg:bg-white p-6 rounded-2xl shadow-lg text-[17px] font-medium text-gray-700 border border-gray-100 z-20 lg:absolute lg:top-10 lg:left-4 xl:left-10 text-center flex items-center justify-center lg:block min-h-[140px] lg:min-h-0">
+                    <div>Dificuldade de acesso e cadastro em <span class="font-extrabold">todas as seguradoras</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shrink-0 w-full lg:w-auto snap-center flex justify-center lg:block px-4 lg:px-0">
+                <div
+                    class="w-full lg:max-w-none lg:w-72 bg-white/95 lg:bg-white p-6 rounded-2xl shadow-lg text-[17px] font-medium text-gray-700 border border-gray-100 z-20 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:-left-4 xl:left-0 text-center flex items-center justify-center lg:block min-h-[140px] lg:min-h-0">
+                    <div><span class="font-extrabold">Lentidão</span> para cotar em seguradora por seguradora</div>
+                </div>
+            </div>
+
+            <div class="shrink-0 w-full lg:w-auto snap-center flex justify-center lg:block px-4 lg:px-0">
+                <div
+                    class="w-full lg:max-w-none lg:w-72 bg-white/95 lg:bg-white p-6 rounded-2xl shadow-lg text-[17px] font-medium text-gray-700 border border-gray-100 z-20 lg:absolute lg:bottom-20 lg:left-4 xl:left-10 text-center flex items-center justify-center lg:block min-h-[140px] lg:min-h-0">
+                    <div><span class="font-extrabold">Estudar as condições gerais</span> de cada companhia</div>
+                </div>
+            </div>
+
+            <div class="shrink-0 w-full lg:w-auto snap-center flex justify-center lg:block px-4 lg:px-0">
+                <div
+                    class="w-full lg:max-w-none lg:w-72 bg-white/95 lg:bg-white p-6 rounded-2xl shadow-lg text-[17px] font-medium text-gray-700 border border-gray-100 z-20 lg:absolute lg:top-16 lg:right-4 xl:right-10 text-center flex items-center justify-center lg:block min-h-[140px] lg:min-h-0">
+                    <div>Meu backoffice <span class="font-extrabold">não conhece o fluxo do RCP</span></div>
+                </div>
+            </div>
+
+            <div class="shrink-0 w-full lg:w-auto snap-center flex justify-center lg:block px-4 lg:px-0">
+                <div
+                    class="w-full lg:max-w-none lg:w-72 bg-white/95 lg:bg-white p-6 rounded-2xl shadow-lg text-[17px] font-medium text-gray-700 border border-gray-100 z-20 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:-right-4 xl:right-0 text-center flex items-center justify-center lg:block min-h-[140px] lg:min-h-0">
+                    <div>A seguradora <span class="font-extrabold">não me fornece treinamento</span></div>
+                </div>
+            </div>
+
+            <div class="shrink-0 w-full lg:w-auto snap-center flex justify-center lg:block px-4 lg:px-0">
+                <div
+                    class="w-full max-w-sm lg:max-w-none lg:w-72 bg-white/95 lg:bg-white p-6 rounded-2xl shadow-lg text-base font-medium text-gray-700 border border-gray-100 z-20 lg:absolute lg:bottom-12 lg:right-4 xl:right-10 text-center flex items-center justify-center lg:block min-h-[140px] lg:min-h-0">
+                    <div>Entender as <span class="font-extrabold">diferenças de coberturas</span> entre as seguradoras
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div
-            class="w-full max-w-sm md:max-w-none md:w-56 bg-white p-5 rounded-2xl shadow-lg text-sm font-medium text-gray-700 border border-gray-100 z-20 md:absolute md:top-1/2 md:-translate-y-1/2 md:-left-4 lg:left-0">
-            <span class="font-extrabold">Lentidão</span> para cotar em seguradora por seguradora
+        <div class="flex lg:hidden justify-center space-x-2 mt-2 mb-6 w-full z-20 relative">
+            <button *ngFor="let dot of [0, 1, 2, 3, 4, 5]" (click)="goToDor(dot)"
+                [class]="doresCurrentSlide === dot ? 'bg-[#f05a10] w-8' : 'bg-[#e2d5cc] w-3 hover:bg-[#f05a10]'"
+                class="h-3 rounded-full transition-all duration-300 shadow-sm">
+            </button>
         </div>
-
-        <div
-            class="w-full max-w-sm md:max-w-none md:w-56 bg-white p-5 rounded-2xl shadow-lg text-sm font-medium text-gray-700 border border-gray-100 z-20 md:absolute md:bottom-20 md:left-4 lg:left-10">
-            <span class="font-extrabold">Estudar as condições gerais</span> de cada companhia
-        </div>
-
-        <div
-            class="w-full max-w-sm md:max-w-none md:w-56 bg-white p-5 rounded-2xl shadow-lg text-sm font-medium text-gray-700 border border-gray-100 z-20 md:absolute md:top-16 md:right-4 lg:right-10">
-            Meu backoffice <span class="font-extrabold">não conhece o fluxo do RCP</span>
-        </div>
-
-        <div
-            class="w-full max-w-sm md:max-w-none md:w-56 bg-white p-5 rounded-2xl shadow-lg text-sm font-medium text-gray-700 border border-gray-100 z-20 md:absolute md:top-1/2 md:-translate-y-1/2 md:-right-4 lg:right-0">
-            A seguradora <span class="font-extrabold">não me fornece treinamento</span>
-        </div>
-
-        <div
-            class="w-full max-w-sm md:max-w-none md:w-56 bg-white p-5 rounded-2xl shadow-lg text-sm font-medium text-gray-700 border border-gray-100 z-20 md:absolute md:bottom-12 md:right-4 lg:right-10">
-            Entender as <span class="font-extrabold">diferenças de coberturas</span> entre as seguradoras
-        </div>
-
     </div>
 
-    <p class="mt-4 text-xl font-bold text-gray-800 max-w-2xl mx-auto text-[1.4rem]">
+    <p class="mt-10 md:mt-8 text-xl font-bold text-gray-800 max-w-2xl mx-auto text-[1.4rem]">
         Se essas dores fazem sentido para você, estamos alinhados.
     </p>
 
-    <p class="mt-4 text-gray-600 max-w-4xl mx-auto font-medium text-[1.4rem]">
+    <p class="mt-6 md:mt-4 text-gray-600 max-w-4xl mx-auto font-medium text-[1.4rem]">
         Há um novo padrão sendo construído no mercado de RC Profissional, e você pode fazer parte dele assim como um
         dos nossos parceiros...
     </p>
-
 </section>

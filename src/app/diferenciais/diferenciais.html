@@ -17,47 +17,71 @@
             </div>
         </div>
 
-        <div class="flex justify-center mb-10 mt-12  md:mb-10 md:-mt-10  lg:mb-33 xl:-mt-23">
+        <div class="flex justify-center mb-4 mt-12 md:mb-10 md:-mt-10 lg:mb-33 xl:-mt-23">
             <span
-                class="z-40  bg-[#ff6a13] text-white font-extrabold px-12 py-3.5 w-90 h-18 xl:w-120 xl:h-22 flex items-center justify-center text-center rounded-2xl text-[1.5rem] xl:text-[2.1rem]  tracking-wide shadow-[0_10px_25px_rgba(255,106,19,0.4)]">
+                class="z-40 bg-[#ff6a13] text-white font-extrabold px-12 py-3.5 w-90 h-18 xl:w-120 xl:h-22 flex items-center justify-center text-center rounded-2xl text-[1.5rem] xl:text-[2.1rem] tracking-wide shadow-[0_10px_25px_rgba(255,106,19,0.4)]">
                 TECNOLOGIA
             </span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 lg:-mt-23">
+        <div #carouselTecnologia (scroll)="onScrollTec($event)"
+            class="flex flex-nowrap lg:grid lg:grid-cols-4 gap-0 lg:gap-6 mb-20 lg:-mt-23 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:-none] [scrollbar-width:none]">
             @for (tec of tecnologias; track tec.titulo) {
-            <div
-                class="bg-white rounded-[2rem] p-6 flex items-center justify-start md:justify-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-transform">
-                <span class="drop-shadow-sm w-12 md:w-16 lg:w-[4.5rem] shrink-0">
-                    <img [src]="tec.icone" [alt]="tec.titulo" class="w-full h-auto object-contain">
-                </span>
-                <span class="font-extrabold text-gray-900 text-xl lg:text-[1.3rem] leading-tight"
-                    [innerHTML]="tec.titulo"></span>
+            <div class="shrink-0 w-full lg:w-auto snap-center py-6 px-4 lg:p-0">
+                <div
+                    class="bg-white rounded-[2rem] p-6 flex items-center justify-start md:justify-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-transform h-full">
+                    <span class="drop-shadow-sm w-12 md:w-16 lg:w-[4.5rem] shrink-0">
+                        <img [src]="tec.icone" [alt]="tec.titulo" class="w-full h-auto object-contain">
+                    </span>
+                    <span class="font-extrabold text-gray-900 text-xl lg:text-[1.3rem] leading-tight"
+                        [innerHTML]="tec.titulo"></span>
+                </div>
             </div>
             }
         </div>
 
-        <div class="flex justify-center mb-10">
+        <!-- Dots Mobile Tecnologia -->
+        <div class="flex lg:hidden justify-center space-x-2 -mt-16 mb-20 w-full relative z-20">
+            @for (item of tecnologias; track item.titulo; let i = $index) {
+            <button (click)="goToTec(i)"
+                [class]="tecCurrentSlide === i ? 'bg-[#ff6a13] w-8' : 'bg-gray-300 w-3 hover:bg-[#ff6a13]'"
+                class="h-3 rounded-full transition-all duration-300 shadow-sm"></button>
+            }
+        </div>
+
+        <div class="flex justify-center mb-4 md:mb-10">
             <span
                 class="bg-[#009b9f] text-white font-extrabold px-12 py-3.5 w-90 h-18 xl:w-120 xl:h-22 flex items-center justify-center text-center rounded-2xl text-[1.4rem] xl:text-[1.6rem] tracking-wide shadow-[0_10px_25px_rgba(0,155,159,0.4)]">
                 ASSESSORIA EM SEGUROS
             </span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div #carouselAssessoria (scroll)="onScrollAss($event)"
+            class="flex flex-nowrap lg:grid lg:grid-cols-4 gap-0 lg:gap-6 mb-16 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:-none] [scrollbar-width:none]">
             @for (ass of assessorias; track ass.titulo) {
-            <div
-                class="bg-white rounded-[2rem] p-6 flex items-center justify-start md:justify-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-transform">
-                <span class="drop-shadow-sm w-12 md:w-16 lg:w-[4.5rem] shrink-0">
-                    <img [src]="ass.icone" [alt]="ass.titulo" class="w-full h-auto object-contain">
-                </span>
-                <span class="font-extrabold text-gray-900 text-xl lg:text-[1.3rem] leading-tight text-left"
-                    [innerHTML]="ass.titulo"></span>
+            <div class="shrink-0 w-full lg:w-auto snap-center py-6 px-4 lg:p-0">
+                <div
+                    class="bg-white rounded-[2rem] p-6 flex items-center justify-start md:justify-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-transform h-full">
+                    <span class="drop-shadow-sm w-12 md:w-16 lg:w-[4.5rem] shrink-0">
+                        <img [src]="ass.icone" [alt]="ass.titulo" class="w-full h-auto object-contain">
+                    </span>
+                    <span class="font-extrabold text-gray-900 text-xl lg:text-[1.3rem] leading-tight text-left"
+                        [innerHTML]="ass.titulo"></span>
+                </div>
             </div>
             }
         </div>
 
-        <p class="text-center font-extrabold text-2xl lg:text-3xl text-gray-900 mt-20 mb-10">
+        <!-- Dots Mobile Assessoria -->
+        <div class="flex lg:hidden justify-center space-x-2 -mt-12 mb-16 w-full relative z-20">
+            @for (item of assessorias; track item.titulo; let i = $index) {
+            <button (click)="goToAss(i)"
+                [class]="assCurrentSlide === i ? 'bg-[#009b9f] w-8' : 'bg-gray-300 w-3 hover:bg-[#009b9f]'"
+                class="h-3 rounded-full transition-all duration-300 shadow-sm"></button>
+            }
+        </div>
+
+        <p class="text-center font-extrabold text-2xl lg:text-3xl text-gray-900 mt-20 mb-1">
             A RC4VC cuida do seu BACKOFFICE para você
             <br class="hidden md:block"> focar no que importa: <span class="text-[#ff6a13]">VENDER.</span>
         </p>

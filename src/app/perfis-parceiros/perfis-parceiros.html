@@ -1,12 +1,13 @@
-<section class="pt-8 pb-24 md:pb-[26rem] relative overflow-hidden bg-[#fff9f4]">
+<section class="pt-14 pb-24 md:pb-[26rem] relative overflow-hidden bg-[#fff9f4]">
 
     <div class="absolute inset-0 bg-gradient-to-b from-[#fae6d8] via-[#ffeadd] to-[#fffbf8] opacity-100 z-0"></div>
 
     <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div class="absolute -right-[50px] -top-[30px] w-[400px] h-[500px] md:w-[600px] md:h-[800px] opacity-[0.15]">
+        <div
+            class="hidden lg:block absolute -right-[50px] -top-[30px] w-[400px] h-[500px] md:w-[600px] md:h-[800px] opacity-[0.15]">
             <img src="imgs/numero4.png" alt="Decorative 4" class="w-full h-full object-contain">
         </div>
-        <div class="absolute right-[15%] md:right-[25%] bottom-[60px] w-[200px] h-[300px] md:w-[300px] md:h-[400px] opacity-[0.4]"
+        <div class="hidden lg:block absolute right-[15%] md:right-[25%] bottom-[60px] w-[200px] h-[300px] md:w-[300px] md:h-[400px] opacity-[0.4]"
             style="filter: hue-rotate(155deg);">
             <img src="imgs/numero4.png" alt="Decorative 4" class="w-full h-full object-contain">
         </div>
@@ -14,27 +15,41 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
 
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 tracking-tight leading-tight">
+        <h2
+            class="text-4xl mt-4 md:mt-0 md:text-5xl font-extrabold text-gray-900 mb-4 md:mb-16 tracking-tight leading-tight">
             Quem pode ser <br> parceiro <span class="text-[#009b9f]">RC<span class="text-[#f05a10]">4</span>VC</span>
         </h2>
 
-        <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-16">
+        <div #carouselPerfis (scroll)="onScrollPerfis($event)"
+            class="flex flex-nowrap lg:flex-wrap lg:justify-center overflow-x-auto lg:overflow-x-visible gap-0 lg:gap-8 mb-2 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:-none] [scrollbar-width:none]">
             @for (perfil of perfis; track perfil.titulo) {
-            <div
-                class="w-48 h-44 md:w-60 md:h-48 bg-white rounded-3xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white hover:border-[#bfe6e7] flex flex-col items-center justify-center p-4 hover:-translate-y-2 transition-all duration-300 group cursor-default">
+            <div class="shrink-0 w-full lg:w-auto snap-center py-6 px-10 lg:p-0">
+                <div
+                    class="w-full h-56 lg:w-60 lg:h-48 bg-white rounded-3xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.05)] border border-white hover:border-[#bfe6e7] flex flex-col items-center justify-center p-4 hover:-translate-y-2 transition-all duration-300 group cursor-default">
 
-                <div class="mb-1 text-[#009b9f] group-hover:scale-110 transition-transform duration-300">
-                    <img [src]="perfil.iconeUrl" [alt]="'Ícone ' + perfil.titulo" class="w-30 h-25">
+                    <div class="mb-1 text-[#009b9f] group-hover:scale-110 transition-transform duration-300">
+                        <img [src]="perfil.iconeUrl" [alt]="'Ícone ' + perfil.titulo" class="w-30 h-25">
+                    </div>
+
+                    <span class="text-gray-800 font-extrabold text-lg leading-tight text-center"
+                        [innerHTML]="perfil.titulo"></span>
                 </div>
-
-                <span class="text-gray-800 font-extrabold text-lg leading-tight text-center"
-                    [innerHTML]="perfil.titulo"></span>
             </div>
             }
         </div>
+
+        <!-- Dots Mobile Perfis -->
+        <div class="flex lg:hidden justify-center space-x-2 -mt-0 mb-7 w-full relative z-20">
+            @for (item of perfis; track item.titulo; let i = $index) {
+            <button (click)="goToPerfil(i)"
+                [class]="perfisCurrentSlide === i ? 'bg-[#f05a10] w-8' : 'bg-[#e2d5cc] w-3 hover:bg-[#009b9f]'"
+                class="h-3 rounded-full transition-all duration-300 shadow-sm"></button>
+            }
+        </div>
+
         <a href="#formulario">
             <button
-                class="bg-[#f05a10] text-white font-bold py-4 px-8 text-lg lg:py-5 lg:px-9 lg:text-2xl -mb-20 mt-8 rounded-full shadow-lg hover:bg-[#d64d0b] transition-colors">
+                class="bg-[#f05a10] text-white font-bold py-4 px-8 text-lg lg:py-5 lg:px-9 lg:text-2xl -mb-8 xl:mt-16 sm:mt-10 rounded-full shadow-lg hover:bg-[#d64d0b] transition-colors">
                 Quero conhecer a plataforma
             </button>
         </a>
