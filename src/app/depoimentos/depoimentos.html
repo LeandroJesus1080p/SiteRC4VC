@@ -1,6 +1,6 @@
 <section class="pt-8 pb-24 px-8 bg-gradient-to-bl from-[#ffffff] via-[#ffffff] via-65% to-[#4dd0e1] text-center">
 
-    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-16 tracking-tight leading-tight">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-5 tracking-tight leading-tight">
         Depoimentos de quem já <br> se beneficiou da <span class="text-[#008e90]">RC<span
                 class="text-[#f05a10]">4</span>VC</span>
     </h2>
@@ -8,18 +8,57 @@
     <div class="max-w-6xl mx-auto relative group mb-16 px-4">
 
         <div class="overflow-hidden rounded-3xl pb-12 pt-4">
-            <div class="flex transition-transform duration-500 ease-out"
+            <div class="flex transition-transform duration-600 ease-out"
                 [style.transform]="'translateX(-' + (currentSlide * (100 / itemsVisible)) + '%)'">
 
-                <div *ngFor="let item of testimonials" class="w-full flex-shrink-0 px-4 box-border"
+                <div *ngFor="let item of testimonials; let i = index" class="w-full flex-shrink-0 px-4 box-border pt-12"
                     [style.flex-basis.%]="100 / itemsVisible">
 
                     <div
-                        class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 text-left flex flex-col relative h-full transition-transform hover:-translate-y-2 duration-300 min-h-[300px]">
-                        <span [class]="item.highlight ? 'text-[#f05a10]' : 'text-[#009b9f]'"
-                            class="text-4xl absolute top-4 right-6">"</span>
-                        <p class="text-gray-600 text-sm italic mb-6 relative z-10 flex-1 leading-relaxed">
-                            {{item.text}}</p>
+                        class="bg-white px-8 pb-8 pt-23 rounded-3xl shadow-lg border border-gray-100 text-center flex flex-col items-center relative h-full transition-transform hover:-translate-y-2 duration-300 min-h-[300px]">
+
+                        <img [src]="item.image" alt="Foto de {{item.name}}"
+                            class="w-20 h-20 rounded-full object-cover absolute top-4 left-1/2 transform -translate-x-1/2 border-4 border-white bg-gray-100 shadow-md">
+
+                        <div class="flex justify-center gap-1 mt-6 mb-4">
+                            <svg *ngFor="let s of [1,2,3,4,5]" class="w-4 h-4 text-[#ebb354]" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="font-bold text-lg text-gray-900 leading-none mb-1">{{item.name}}</h3>
+                        <p class="text-xs font-semibold text-[#009b9f] mb-4">{{item.role}}</p>
+
+                        <div class="relative w-full flex-1 flex flex-col justify-between items-center mt-2 h-full">
+                            <div class="relative overflow-hidden transition-all duration-500 w-full text-left"
+                                [ngStyle]="{'max-height': (isMobile ? item.expanded : isExpanded) ? '1000px' : '150px'}">
+                                <p
+                                    class="text-gray-600 text-sm italic relative z-10 leading-relaxed whitespace-pre-line w-full pb-2">
+                                    {{item.text}}
+                                </p>
+                                <!-- Degradê cobrindo o texto quando fechado -->
+                                <div *ngIf="!(isMobile ? item.expanded : isExpanded)"
+                                    class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <button (click)="toggleExpand(i)"
+                                class="text-[#f05a10] text-sm font-bold mt-auto pt-4 hover:text-[#d64d0b] transition-colors z-30 flex items-center gap-1 mb-2">
+                                {{ (isMobile ? item.expanded : isExpanded) ? 'Ver menos' : 'Leia mais' }}
+                                <svg *ngIf="!(isMobile ? item.expanded : isExpanded)" class="w-4 h-4" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                                <svg *ngIf="(isMobile ? item.expanded : isExpanded)" class="w-4 h-4" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 15l7-7 7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
 
                     </div>
                 </div>

@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 
 interface Testimonial {
   text: string;
-
+  name: string;
+  role: string;
+  image: string;
   highlight?: boolean;
+  expanded?: boolean;
 }
 
 @Component({
@@ -15,26 +18,47 @@ interface Testimonial {
 export class Depoimentos implements OnInit, OnDestroy {
   testimonials: Testimonial[] = [
     {
-      text: "“Trabalhar com a RC4VC trouxe uma agilidade que eu não encontrava em outras assessorias. O processo é fluido, sem burocracia, e o atendimento é humano. Recomendo para qualquer corretor que queira escalar suas vendas de RCP.”",
+      text: '"Além de ser fácil de encaminhar o cotador para possíveis clientes, de forma clara e educativa, facilitando a decisão do cliente, o suporte completa uma parceria sólida!"',
+      name: 'JP Bottecchia',
+      role: 'Jplanner Corretora',
+      image: 'imgs/depoimentos/JP_Bottecchia.png',
       highlight: false
     },
     {
-      text: "“O que diferencia a RC4VC é o domínio técnico sobre o Seguro de RCP. Eles realmente conhecem as minúcias do mercado e transmitem a segurança necessária para fecharmos negócios complexos com tranquilidade.”",
+      text: 'Sou parceiro da RC4VC desde o início do projeto.\n\nUm atendimento de qualidade ao corretor faz toda a diferença para que possamos sempre levar a melhor proteção e a melhor experiência aos nossos clientes.\n\nUma equipe muito bem alinhada e comprometida em dar suporte real aos corretores.\n\nEm todas as reuniões que tenho com outros corretores, sempre faço questão de indicar, pois a ferramenta é extremamente simples e facilita muito para que o cliente visualize e entenda a proteção que está contratando.',
+      name: 'Nadimir de Almeida Júnio',
+      role: 'Midway Corretora',
+      image: 'imgs/depoimentos/Nadimir_de_Almeida_Junior.png',
       highlight: true
     },
     {
-      text: "“A RC4VC foi a parceira fundamental para me inserir no mercado de Responsabilidade Civil de forma qualificada. Com o apoio deles, passei de um corretor generalista a um especialista respeitado pelos meus clientes.”",
+      text: 'A RC4VC foi uma mudança significativa nas rotinas comerciais e operacionais de nossa corretora. É o único sistema que permite a comparação entre seguradoras totalmente automatizada e seus diferenciais de forma prática e objetiva em segundos. Qualquer pessoa leiga se torna um especialista em RC usando o sistema RC4VC. Usamos e recomendamos a todos os nossos parceiros da Plataforma AddMoney.',
+      name: 'Paulo André',
+      role: 'Addmoney Assessoria',
+      image: 'imgs/depoimentos/Paulo_Andre.png',
       highlight: false
     },
     {
-      text: "“Mais do que uma assessoria, a RC4VC é um braço direito. A equipe está sempre pronta para tirar dúvidas e ajudar na argumentação de vendas. É a parceria que todo corretor busca para crescer com segurança.”",
+      text: 'Ter a RC4VC como parceira, com toda certeza foi um diferencial. Sua ajuda na apresentação de comparativos e acompanhamento operacional, trás muita segurança na consultoria e venda de RC.',
+      name: 'Sunamita Freitas',
+      role: 'Vilani Seguros',
+      image: 'imgs/depoimentos/Sumanita.png',
       highlight: false
     },
-
+    {
+      text: '"A plataforma da RC4VC foi algo inovador no mercado. Intuitiva e fácil, torna o trabalho de cotação e comparação extremamente ágil.\nAlém é claro de contar com um time de BO que auxilia muito nas demandas do dia a dia”',
+      name: 'Cauê Valença',
+      role: 'Grupo Capital',
+      image: 'imgs/depoimentos/Caue.png',
+      highlight: false
+    }
   ];
 
   currentSlide = 0;
   itemsVisible = 3;
+  isExpanded = false; // Desktop global expand
+  expandedIndex: number | null = null; // Mobile individual expand
+  isMobile = false;
   private intervalId: any;
 
   ngOnInit() {
@@ -52,7 +76,17 @@ export class Depoimentos implements OnInit, OnDestroy {
   }
 
   checkScreenSize() {
-    this.itemsVisible = window.innerWidth < 768 ? 1 : 3;
+    this.isMobile = window.innerWidth < 768;
+    this.itemsVisible = this.isMobile ? 1 : 3;
+
+    // Reset validations on screen size change
+    if (!this.isMobile) {
+      this.expandedIndex = null;
+      this.testimonials.forEach(t => t.expanded = false);
+    } else {
+      this.isExpanded = false;
+    }
+
     const maxSlide = this.testimonials.length - this.itemsVisible;
     if (this.currentSlide > maxSlide) {
       this.currentSlide = maxSlide;
@@ -61,6 +95,7 @@ export class Depoimentos implements OnInit, OnDestroy {
 
   prev() {
     this.stopAutoPlay();
+    this.resetExpanded();
     const maxSlide = this.testimonials.length - this.itemsVisible;
     this.currentSlide = (this.currentSlide > 0) ? this.currentSlide - 1 : maxSlide;
     this.startAutoPlay();
@@ -68,6 +103,7 @@ export class Depoimentos implements OnInit, OnDestroy {
 
   next() {
     this.stopAutoPlay();
+    this.resetExpanded();
     const maxSlide = this.testimonials.length - this.itemsVisible;
     const nextSlide = (this.currentSlide < maxSlide) ? this.currentSlide + 1 : 0;
 
@@ -78,6 +114,7 @@ export class Depoimentos implements OnInit, OnDestroy {
 
   goToSlide(index: number) {
     this.stopAutoPlay();
+    this.resetExpanded();
     const maxSlide = this.testimonials.length - this.itemsVisible;
     if (index <= maxSlide) {
       this.currentSlide = index;
@@ -85,16 +122,43 @@ export class Depoimentos implements OnInit, OnDestroy {
     this.startAutoPlay();
   }
 
+  resetExpanded() {
+    if (this.isMobile) {
+      this.expandedIndex = null;
+      this.testimonials.forEach(t => t.expanded = false);
+    }
+  }
+
   startAutoPlay() {
     this.stopAutoPlay();
     this.intervalId = setInterval(() => {
       this.next();
-    }, 5000);
+    }, 10000);
   }
 
   stopAutoPlay() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
+    }
+  }
+
+  toggleExpand(index: number) {
+    if (this.isMobile) {
+      // Toggle individual para mobile
+      if (this.expandedIndex === index) {
+        this.expandedIndex = null;
+        this.testimonials[index].expanded = false;
+      } else {
+        // Fecha os outros e abre o atual
+        if (this.expandedIndex !== null) {
+          this.testimonials[this.expandedIndex].expanded = false;
+        }
+        this.expandedIndex = index;
+        this.testimonials[index].expanded = true;
+      }
+    } else {
+      // Toggle global para desktop
+      this.isExpanded = !this.isExpanded;
     }
   }
 }
